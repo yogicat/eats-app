@@ -29,30 +29,30 @@ let menu: [
   },
   {
     id: 5;
-    name: "Chocolate with Tiramisu Salted Cheese";
-    category: "milk tea";
-    contents: "";
+    name: 'Chocolate with Tiramisu Salted Cheese';
+    category: 'milk tea';
+    contents: '';
     price: 5.5;
   },
   {
     id: 6;
-    name: "Chocolate with Tiramisu Salted Cheese";
-    category: "tea series";
-    contents: "";
+    name: 'Chocolate with Tiramisu Salted Cheese';
+    category: 'tea series';
+    contents: '';
     price: 5.5;
   },
   {
     id: 7;
-    name: "Matcha Latte with Tiramisu Salted Cheese";
-    category: "salted cheese";
-    contents: "";
+    name: 'Matcha Latte with Tiramisu Salted Cheese';
+    category: 'salted cheese';
+    contents: '';
     price: 5.5;
   },
   {
     id: 8;
-    name: "Light Oolong Tea with Salted Cheese";
-    category: "milk tea";
-    contents: "";
+    name: 'Light Oolong Tea with Salted Cheese';
+    category: 'milk tea';
+    contents: '';
     price: 5.5;
   }
 ];
