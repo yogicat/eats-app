@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Imenu } from './data';
 @Component({
@@ -6,8 +6,9 @@ import { Imenu } from './data';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app';
+  isActive = false;
   menu: Imenu[] = [
       {
         id: 1,
@@ -66,4 +67,27 @@ export class AppComponent {
         price: 5.5
       }
   ];
+  addedItems: Imenu[] = [];
+  menuCategory = Object.keys(this.menu.map(item => item.category).reduce( function(obj, item) {
+    if (!obj[item]) {
+      obj[item] = 0;
+    }
+    obj[item]++;
+    return obj;
+  }, {}));
+
+  addToCart(item) {
+    this.addedItems = [...this.addedItems, item];
+    console.table(this.addedItems);
+  }
+
+  totalPrice() {
+    return this.addedItems.map(item => item.price).reduce( function(total, item) {
+      return total += item;
+    });
+  }
+
+  ngOnInit() {
+    console.log(this.menuCategory);
+  }
 }

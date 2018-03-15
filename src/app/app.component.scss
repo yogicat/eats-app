@@ -2,5 +2,15 @@
 $main-color: #ffc107;
 
 a {
-  color: $main-color;
+  color: #333;
+}
+
+.my-li {
+  margin-right: 20px;
+}
+
+.decription {
+  margin: 10px 0;
+  text-align: center;
+  font-size: 0.7rem;
 }

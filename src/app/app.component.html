@@ -19,39 +19,37 @@
   </div>
   <!-- menu nav bar -->
     
-  <div class="navbar navbar-expand">
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
+  <div class="row">
+    <ul class="nav navbar-nav navbar-expand">
+      <li class="btn my-li" [ngClass]="isActive ? active : ''" *ngFor="let name of menuCategory"><a href="#">{{ name }}</a></li>
     </ul>
   </div>
 
   <div class="row mt-sm-4 mt-md-0">
     <!-- left-side column -->
-    <div class="col-sm-12 col-md-4">
-      <div class="card mb-4">
+  <div class="col-sm-12 col-md-8 mb-md-4">
+    <div class="col" *ngFor="let item of menu">
+      <div class="card col-12 mb-4">
         <div class="card-body text-center">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Lorem, ipsum dolor.</p>
-          <a href="#" class="card-link">click for more</a>
+          <h5 class="card-title">{{ item.name }}</h5>
+          <p class="card-text">$ {{ item.price }}</p>
+          <a href="#" class="card-link btn btn-warning" (click)="addToCart(item)">add to cart</a>
         </div>
       </div>
     </div>
+  </div>
 
     <!-- right-side column -->
-    <div class="col-sm-12 col-md-4 offset-md-4 mb-md-4">
-      <h3 class="mb-4">secondary menu</h3>
+    <div class="col-sm-12 col-md-4 mb-md-4">
       <ul class="nav flex-column nav-pills">
-        <li class="nav-item">
-          <a href="#" class="nav-link active bg-warning">menu 01</a>
+        <li class="nav-item" *ngFor="let addedItem of addedItems">
+          <a href="#" class="nav-link">{{ addedItem.name }}
+          <span>$ {{ addedItem.price }}</span></a>
         </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">menu 02</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link disabled">menu 03</a>
-        </li>
-
       </ul>
+      <p>total price: {{ totalPrice() }}</p>
+      <a href="#" class="btn btn-warning">checkout</a>
+      <p class="decription">Add items to your cart and they’ll appear here.</p>
     </div>
   </div>
 </div>
