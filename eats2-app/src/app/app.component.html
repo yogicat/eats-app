@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="header">
-    <div class="logo">
+    <div class="logo" (click)="showLogin = false">
       <div class="logo-img"></div>
       <h2>happy lemon</h2>
     </div>
@@ -11,15 +11,18 @@
       </label>
     </div>
     <ul class="login-group">
-      <li><a class="btn btg-sm btn-warning" href="#" role="button">member</a></li>
-      <li><a class="btn btg-sm btn-warning" href="#" role="button">cart</a></li>
+      <li><a class="btn btg-sm btn-warning" role="button" (click)="showLogin = true">member</a></li>
+      <li><a class="btn btg-sm btn-warning" role="button">cart</a></li>
     </ul>
   </div>
   
   <main class="main row justify-content-center">
     <div class="col-12">
-      <app-menu></app-menu>
+      <app-menu *ngIf="!showLogin"></app-menu>
+      <app-login *ngIf="showLogin"></app-login>
     </div>
   </main>
-
+  <footer>
+    <app-footer></app-footer>
+  </footer>
 </div>

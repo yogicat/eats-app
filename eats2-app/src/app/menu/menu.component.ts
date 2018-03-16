@@ -29,7 +29,7 @@ export class MenuComponent implements OnInit {
       disc: 'Cucumber, celery, kale, spinach, romaine, lemon, and ginger.',
       price: 7.75,
       category: 'juice',
-      img: '../../assets/images/items/alex-loup-397220-unsplash.jpg'
+      img: '../../assets/images/items/brooke-lark-203844-unsplash.jpg'
     },
     {
       id: 4,
@@ -37,7 +37,7 @@ export class MenuComponent implements OnInit {
       disc: 'Cucumber, celery, kale, spinach, romaine, lemon, and ginger.',
       price: 9.25,
       category: 'mylk',
-      img: '../../assets/images/items/karly-gomez-360069-unsplash.jpg'
+      img: '../../assets/images/items/item00.jpg'
     },
     {
       id: 5,
@@ -45,7 +45,7 @@ export class MenuComponent implements OnInit {
       disc: 'Kale, romaine, spinach, celery, cucumber, green apple, and lemon.',
       price: 9.25,
       category: 'mylk',
-      img: '../../assets/images/items/alex-loup-397220-unsplash.jpg'
+      img: '../../assets/images/items/item01.jpg'
     },
     {
       id: 6,
@@ -53,7 +53,7 @@ export class MenuComponent implements OnInit {
       disc: 'Cucumber, celery, kale, spinach, romaine, lemon, and ginger.',
       price: 7.75,
       category: 'mylk',
-      img: '../../assets/images/items/karly-gomez-360069-unsplash.jpg'
+      img: '../../assets/images/items/item02.jpg'
     },
     {
       id: 7,
@@ -61,7 +61,7 @@ export class MenuComponent implements OnInit {
       disc: 'Cucumber, celery, kale, spinach, romaine, lemon, and ginger.',
       price: 9.25,
       category: 'mylk',
-      img: '../../assets/images/items/alex-loup-397220-unsplash.jpg'
+      img: '../../assets/images/items/item03.jpg'
     },
     {
       id: 8,
@@ -77,7 +77,7 @@ export class MenuComponent implements OnInit {
       disc: 'Cucumber, celery, kale, spinach, romaine, lemon, and ginger.',
       price: 7.75,
       category: 'smoothie',
-      img: '../../assets/images/items/alex-loup-397220-unsplash.jpg'
+      img: '../../assets/images/items/brooke-lark-203844-unsplash.jpg'
     }
   ];
 
@@ -86,6 +86,7 @@ export class MenuComponent implements OnInit {
   listByCat: any[] = [];
   price: number;
   noItem = false;
+  status = 'all';
   getCategory(): void {
     this.catList = Object.keys(this.items.map(item => item.category).reduce( function (obj, item) {
       if (!obj[item]) {
@@ -117,7 +118,16 @@ export class MenuComponent implements OnInit {
       return `$ ${this.price}`;
     }
   }
-  constructor() { }
+
+  removeItem(addedItem): void {
+    this.addedItems = this.addedItems.filter(item => item.id !== addedItem.id);
+  }
+
+  changeStatus(name): void {
+    this.status = name;
+    console.log(this.status);
+  }
+  constructor() {}
 
   ngOnInit() {
     this.getCategory();

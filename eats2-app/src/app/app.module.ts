@@ -6,14 +6,20 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
-import { StatusPipe } from './status.pipe';
+import { StatusPipe } from './menu/status.pipe';
+import { LoginComponent } from './login/login.component';
+import { FooterComponent } from './footer/footer.component';
+import { TitleStatusPipe } from './menu/title-status.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    StatusPipe
+    StatusPipe,
+    LoginComponent,
+    FooterComponent,
+    TitleStatusPipe
   ],
   imports: [
     BrowserModule,
