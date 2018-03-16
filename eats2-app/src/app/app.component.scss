@@ -1,0 +1,105 @@
+// common variables 정의
+$main-color: #ffc107;
+.container-fluid{
+  // padding: 0;
+  position: relative;
+}
+
+.header {
+  z-index: 100;
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  min-height: 80px;
+  background-color: #fff;
+  box-shadow: 0px 6px 20px 9px #b4b4b42d;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  .logo {
+    margin: 0;
+    // width: 500px;
+    height: 80px;
+    font-size: 18px;
+    // padding-top: 20px;
+    display: flex;
+    align-items: center;
+    
+    .logo-img {
+      width: 50px;
+      height: 80px;
+      background-image: url('../assets/images/icon.svg');
+      background-repeat: no-repeat;
+      background-size: 50px auto;
+      background-position: 0% 50%;
+    }
+
+    h2 {
+      padding: 0;
+      font-size: 1.4rem;
+      margin: 0;
+    }
+  }
+}
+
+.search-group {
+  label {
+    margin: 0;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    color: gray;
+    width: 200px;
+    height: 38px;
+    border: 1px solid #e1e1e1;
+    border-radius: 2px;
+  }
+
+  input[type="text"] {
+    border: 0;
+    width: 80%;
+    // width: calc(100%-25px);
+    font-weight: 300;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .fa {
+    color: #dbdbdb;
+    text-align: center;
+    font-size: 1rem;
+    padding-right: 5px;
+    width: 20px;
+  }
+}
+
+.login-group {
+  display: flex;
+  list-style: none;
+  align-items: flex-end;
+  margin: 0;
+  padding: 0;
+  
+  li {
+    margin-left: 5px;
+  }
+  // .button {
+    // cursor: pointer;
+    // padding: 5px 20px;
+    // margin: 0 5px;
+    // background-color: #ffe500;
+    // border-radius: 20px 20px;
+    // color: rgb(65, 65, 65);
+    // border: 0;
+    // transition: all 0.2s ease-in-out;
+  // }
+}
+
+.main {
+  margin-top: 80px;
+  height: 100vh;
+  // background: no-repeat url('../assets/images/lemon.svg');
+}

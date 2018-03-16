@@ -1,0 +1,71 @@
+<div class="row justify-content-center head-background">
+  <div class="col-12 col-md-10 head-group">
+    <div class="head-box">
+      <h2>Happy Lemon Juice and Smoothies</h2>
+      <p class="mutted-text">Healthy & Vegan</p>
+      <div class="head-info">
+        <span class="btn btn-success">price range</span>
+        <span class="btn btn-success">juice bar</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- testing -->
+<!-- <div class="row justify-content-center category"> -->
+  <!-- <div class="col-12 col-md-10 category"> -->
+    <!-- category nav bar -->
+    <!-- <ul> -->
+      <!-- <li><a href="#" class="btn btn-light">All Items</a></li> -->
+      <!-- <li *ngFor="let cat of catList"><a href="#" class="btn btn-light">{{ cat }}</a></li> -->
+    <!-- </ul> -->
+  <!-- </div> -->
+<!-- </div> -->
+
+<div class="row justify-content-center">
+
+  <!-- category nav bar -->
+  <div class="col-12 category">
+    <div class="col-12 col-md-10 offset-md-1">
+      <ul>
+        <li>
+          <a href="#" class="btn btn-light bg-white">All Items</a>
+        </li>
+        <li *ngFor="let cat of catList">
+          <a href="#" class="btn btn-light bg-white" (click)="toggleMenu(cat)">{{ cat }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- detail menu list -->
+  <div class="col-12 col-md-6 col-lg-5 my-menus">
+    <div class="my-menu-group" id="{{ name }}" *ngFor="let name of catList">
+      <h4 class="menu-title">{{ name | uppercase }}</h4>
+      <div class="my-card" *ngFor="let item of items">
+        <div class="image"><img src="{{ item.img }}" alt="" width="800" height="800"></div>
+        <div class="my-card-body">
+          <h5 class="my-card-title">{{ item.title }}</h5>
+          <p class="menu-disc">{{ item.disc }}</p>
+          <div class="my-card-bottom">
+            <span class="btn btn-sm btn-light">$ {{ item.price }}</span>
+            <span class="btn btn-sm btn-light">num</span>
+          <a href="#" class="btn btn-sm btn-warning">add</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end of the card -->
+
+  <!-- cart view -->
+    <div class="col-12 col-md-4 col-lg-5 cart-group">
+      <div class="card my-cart">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-block btn-success">checkout</a>
+        </div>
+      </div>
+    </div>
+    <!-- end of the cart -->
+</div>
