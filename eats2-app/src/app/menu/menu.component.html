@@ -32,7 +32,7 @@
           <a href="#" class="btn btn-light bg-white">All Items</a>
         </li>
         <li *ngFor="let cat of catList">
-          <a href="#" class="btn btn-light bg-white" (click)="toggleMenu(cat)">{{ cat }}</a>
+          <a class="btn btn-light bg-white" (click)="toggleMenu(cat)">{{ cat }}</a>
         </li>
       </ul>
     </div>
@@ -50,7 +50,7 @@
           <div class="my-card-bottom">
             <span class="btn btn-sm btn-light">$ {{ item.price }}</span>
             <span class="btn btn-sm btn-light">num</span>
-          <a href="#" class="btn btn-sm btn-warning">add</a>
+          <a class="btn btn-sm btn-warning" (click)="addToCart(item)">add</a>
           </div>
         </div>
       </div>
@@ -62,8 +62,15 @@
     <div class="col-12 col-md-4 col-lg-5 cart-group">
       <div class="card my-cart">
         <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-block btn-success">checkout</a>
+          <ul class="cart-list">
+            <li *ngFor="let addedItem of addedItems">
+              <p class="card-text cart-item">{{ addedItem.title }} : $ {{ addedItem.price}}</p>
+              <a class="delete-item">remove</a>
+            </li>
+          </ul>
+          <!-- <p class="card-text cart-price" *ngIf="addedItems.length > 0">total price : {{ totalPrice() }}</p> -->
+          <p class="card-text cart-price">{{ totalPrice() }}</p>
+          <a href="#" class="btn btn-block btn-success" [ngClass]="{'disabled':addedItems.length === 0}">checkout</a>
         </div>
       </div>
     </div>

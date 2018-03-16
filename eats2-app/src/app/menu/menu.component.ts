@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit {
       disc: 'Kale, romaine, spinach, celery, cucumber, green apple, and lemon.',
       price: 9.25,
       category: 'juice',
-      img: '../../assets/images/items/alex-loup-397220-unsplash.jpg'
+      img: '../../assets/images/items/karly-gomez-360069-unsplash.jpg'
     },
     {
       id: 3,
@@ -37,7 +37,7 @@ export class MenuComponent implements OnInit {
       disc: 'Cucumber, celery, kale, spinach, romaine, lemon, and ginger.',
       price: 9.25,
       category: 'mylk',
-      img: '../../assets/images/items/alex-loup-397220-unsplash.jpg'
+      img: '../../assets/images/items/karly-gomez-360069-unsplash.jpg'
     },
     {
       id: 5,
@@ -53,7 +53,7 @@ export class MenuComponent implements OnInit {
       disc: 'Cucumber, celery, kale, spinach, romaine, lemon, and ginger.',
       price: 7.75,
       category: 'mylk',
-      img: '../../assets/images/items/alex-loup-397220-unsplash.jpg'
+      img: '../../assets/images/items/karly-gomez-360069-unsplash.jpg'
     },
     {
       id: 7,
@@ -81,8 +81,11 @@ export class MenuComponent implements OnInit {
     }
   ];
 
+  addedItems: Imenu[] = [];
   catList: any[] = [];
   listByCat: any[] = [];
+  price: number;
+  noItem = false;
   getCategory(): void {
     this.catList = Object.keys(this.items.map(item => item.category).reduce( function (obj, item) {
       if (!obj[item]) {
@@ -95,6 +98,24 @@ export class MenuComponent implements OnInit {
 
   toggleMenu(name) {
     console.log(name);
+  }
+
+  addToCart(item): void {
+    this.addedItems = [...this.addedItems, item];
+    console.table(this.addedItems);
+  }
+
+  totalPrice(): string {
+    this.price = this.addedItems.map(item => item.price).reduce(function (total, item) {
+      return total += item;
+    }, 0);
+    if (this.price === 0 ) {
+      this.noItem = true;
+      return 'your cart is empty';
+    } else {
+      this.noItem = false;
+      return `$ ${this.price}`;
+    }
   }
   constructor() { }
 
